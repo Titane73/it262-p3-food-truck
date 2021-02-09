@@ -1,6 +1,5 @@
 # it262-p3-food-truck
-IT 262 Winter 2021 - P3 - Food Truck Project
-
+Project 3: Food Truck 
 
 
 
@@ -9,3 +8,4 @@ Team Members:
 Robin VanGilder
 
 Thomas (Ti) Hall
+
