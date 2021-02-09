@@ -52,34 +52,20 @@ p {
 /* ********** Columns ********** */
 
 .columnContainer {
-<<<<<<< HEAD
   display: flex;
   justify-content: center;
-=======
-    display: flex;
-    justify-content: center;
-    
->>>>>>> dad89999543de2377705009413ac8008c00746c7
 }
 
 /* Create three equal columns that floats next to each other */
 .column {
-<<<<<<< HEAD
   width: 30%;
   padding: 10px;
   border: 2px solid rgb(0, 0, 255);
   margin: 0.5em;
-=======
-    width: 30%;
-    padding: 10px;
-    border: 2px solid rgb(0, 0, 255);
-    margin: .5em;
->>>>>>> dad89999543de2377705009413ac8008c00746c7
 }
 
 /* Clear floats after the columns */
 .columnContainer:after {
-<<<<<<< HEAD
   content: "";
   display: table;
   clear: both;
@@ -102,33 +88,3 @@ p {
 .addons label {
   font-family: "Roboto", sans-serif;
 }
-=======
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-
-
-/* ********** Menu (left column) ********** */
-
-#MenuForm {
-    padding: .25em;
-    border: 2px solid rgb(0, 70, 0);
-}
-
-#menu h3 {
-    font-size: 1.25em;
-    border: 2px solid rgb(255, 255, 255);
-}
-
-
-
-
-/* ********** Addons ********** */
-
-.addons label{
-    font-family: 'Roboto', sans-serif;
-}
->>>>>>> dad89999543de2377705009413ac8008c00746c7
