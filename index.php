@@ -1,3 +1,29 @@
+<?php
+// Includes!
+include 'MenuItem.php';
+
+// Declare variables
+$subtotal = 0;
+$total = 0;
+$taxrate = 0;
+$menu_entrees = array();
+$cart = array();
+
+// Fill up the menu arrays with data
+$menu_entrees[] = new MenuItem ('Boneless Chicken Thigh Teriyaki', 6.95, 'The classic teriyaki dish, delicious dark meat cooked in a sweet sauce.');
+$menu_entrees[] = new MenuItem ('Spicy Chicken Teriyaki', 7.55, 'Breast meat cooked in our special house-made hot sauce.');
+$menu_entrees[] = new MenuItem ('Pork Teriyaki', 7.65, 'Pork grilled to perfection in our teriyaki sauce.');
+$menu_entrees[] = new MenuItem ('Chicken Katsu', 8.55, 'A chicken cutlet breaded and deep fried with our special blend of bread crumbs.');
+$menu_entrees[] = new MenuItem ('Beef Teriyaki', 7.95, 'Locally sourced grass-fed beef.');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we have received POST data
+
+    
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,29 +68,18 @@
 
     <div class="columnContainer">
 
-        <div id="menu" class="column1">
+        <div id="menu" class="column">
 
         <div id="accordion">
 
             <h3>Entrees</h3>
                     <ul>
-                        <li>Entree One</li>
-                        <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
-
-                        <li>Entree Two</li>
-                        <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
-
-                        <li>Entree Three</li>
-                        <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
-
-                        <li>Entree Four</li>
-                        <p>Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end.<p>
-
-                        <li>Entree Five</li>
-                        <p>Romantic fall-off-the-bone butternut chuck rice burgers.<p>
-                            
-                        <li>Entree Six</li>
-                        <p>Juicy meatballs brisket slammin' baked shoulder.<p>
+                        <?php
+                            foreach($menu_entrees as $item){
+                                echo "<li>{$item->name}</li>";
+                                echo "<p>{$item->description}</p>";
+                            }
+                        ?>  
                             
                     </ul>
 
@@ -125,104 +140,67 @@
             </div> -->
         </div>
     </div>
-<!-- 
-    <div id="Details" class="column">
 
+    <div id="Details" class="column">
         <div id="MenuForm">
             <div class="detailsWindow">
-
                 <div class="detailsText">
                 <h4>Menu Item</h4>
                 <p>Ipsum to be replaced with code.  Sweet soften dinners, cover mustard infused skillet, Skewers on culinary experience.</p>
                 </div>
-
             </div>
-
             <br>
-
             <div id="controls" class="flexContainer">
                 
                 <div id="PlusMinus">
-
                     <button id="minus">−</button>
                     <input type="number" value="0" id="input" disable/>
                     <button id="plus">+</button>
-
                 </div>
-
                 <div id="AddToCart">
                     <input type="button" value="Add to Cart">
                 </div>
-
             </div>
         </div> -->
         
         <br>
-
                 <!-- <fieldset class="addons">
-
                 <legend id="Addons">Delicious Extras</legend>
-
                     <label><input type="checkbox" id="addon1" name="addon1" value="addon1">Addon 1</label>
                     <br>
-
                     <label><input type="checkbox" id="addon2" name="addon2" value="addon2">Addon 2</label>
                     <br>
-
                     <label><input type="checkbox" id="addon3" name="addon3" value="addon3">Addon 3</label>
                     <br>
-
                     <label><input type="checkbox" id="addon4" name="addon4" value="addon4">Addon 4</label>
                     <br>
-
                     <label><input type="checkbox" id="addon5" name="addon5" value="addon5">Addon 5</label>
                     <br>
-
                     <label><input type="checkbox" id="addon6" name="addon6" value="addon6">Addon 6</label>
                     <br>
-
                     <input type="submit" value="Add to Cart">
-
                     
                 </fieldset>
-
             </div> -->
-
-
             <div id="cart" class="column2">
-
                 <p> Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens. Wine technique snack skewers chuck excess. Oil heat slowly. slices natural delicious, set aside magic tbsp skillet, bay leaves brown centerpiece. fruit soften edges frond slices onion snack pork steem on wines excess technique cup; Cover smoker soy sauce fruit snack. Sweet one-dozen scrape delicious, non sheet raw crunch mustard. Minutes clever slotted tongs scrape, brown steem undisturbed rice.</p>
-
             </div>
-
-
-
         </div>
-
     </form>
-
-
 </body>
-
 <script>
-
     const minusButton = document.getElementById('minus');
     const plusButton = document.getElementById('plus');
     const inputField = document.getElementById('input');
-
     minusButton.addEventListener('click', event => {
     event.preventDefault();
     const currentValue = Number(inputField.value) || 0;
     inputField.value = currentValue - 1;
     });
-
     plusButton.addEventListener('click', event => {
     event.preventDefault();
     const currentValue = Number(inputField.value) || 0;
     inputField.value = currentValue + 1;
     });
-
 </script>
-
-
 </html>
