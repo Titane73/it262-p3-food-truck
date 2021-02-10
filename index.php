@@ -42,7 +42,7 @@
 
     <div class="columnContainer">
 
-        <div id="menu" class="column">
+        <div id="menu" class="column1">
 
         <div id="accordion">
 
@@ -125,8 +125,8 @@
             </div> -->
         </div>
     </div>
-
-        <div id="Details" class="column">
+<!-- 
+    <div id="Details" class="column">
 
         <div id="MenuForm">
             <div class="detailsWindow">
@@ -145,7 +145,7 @@
                 <div id="PlusMinus">
 
                     <button id="minus">−</button>
-                    <input type="number" value="0" id="input"/>
+                    <input type="number" value="0" id="input" disable/>
                     <button id="plus">+</button>
 
                 </div>
@@ -155,11 +155,11 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
         
         <br>
 
-                <fieldset class="addons">
+                <!-- <fieldset class="addons">
 
                 <legend id="Addons">Delicious Extras</legend>
 
@@ -186,10 +186,10 @@
                     
                 </fieldset>
 
-            </div>
+            </div> -->
 
 
-            <div id="cart" class="column">
+            <div id="cart" class="column2">
 
                 <p> Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens. Wine technique snack skewers chuck excess. Oil heat slowly. slices natural delicious, set aside magic tbsp skillet, bay leaves brown centerpiece. fruit soften edges frond slices onion snack pork steem on wines excess technique cup; Cover smoker soy sauce fruit snack. Sweet one-dozen scrape delicious, non sheet raw crunch mustard. Minutes clever slotted tongs scrape, brown steem undisturbed rice.</p>
 

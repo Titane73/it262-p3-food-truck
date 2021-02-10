@@ -57,11 +57,22 @@ p {
 }
 
 /* Create three equal columns that floats next to each other */
-.column {
+
+.column1 {
+  width: 65%;
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 255);
+  margin: 0.5em;
+  background-color: rgba(255, 255, 255, 0.60);
+}
+
+.column2 {
   width: 30%;
   padding: 10px;
   border: 2px solid rgb(0, 0, 255);
   margin: 0.5em;
+  background-color: rgba(255, 255, 255, 0.60);
+
 }
 
 /* Clear floats after the columns */
