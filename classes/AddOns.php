@@ -6,10 +6,12 @@ class AddOns {
     public $description = '';
 
     public function __contruct($name, $price, $description) {
-        this->name = $name;
-        this->price = $price;
-        this->description = $description;
+        $this->name = $name;
+        $this->price = $price;
+        $this->description = $description;
         
     }
 
 }
+
+?>

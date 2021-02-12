@@ -44,85 +44,74 @@
 
         <div id="menu" class="column1">
 
-        <div id="accordion">
+            <div id="accordion">
 
-            <h3>Entrees</h3>
-                    <ul>
-                        <li>Entree One</li>
-                        <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
+                            <h3>Entrees</h3>
+                            <ul>
+                                <li>Entree One</li>
+                                <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
 
-                        <li>Entree Two</li>
-                        <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
+                                <li>Entree Two</li>
+                                <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
 
-                        <li>Entree Three</li>
-                        <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
+                                <li>Entree Three</li>
+                                <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
 
-                        <li>Entree Four</li>
-                        <p>Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end.<p>
+                                <li>Entree Four</li>
+                                <p>Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end.<p>
 
-                        <li>Entree Five</li>
-                        <p>Romantic fall-off-the-bone butternut chuck rice burgers.<p>
-                            
-                        <li>Entree Six</li>
-                        <p>Juicy meatballs brisket slammin' baked shoulder.<p>
-                            
-                    </ul>
+                                <li>Entree Five</li>
+                                <p>Romantic fall-off-the-bone butternut chuck rice burgers.<p>
+                                    
+                                    
+                            </ul>
 
-            <h3>Sides</h3>
-            <div>
-            <ul>
-                        <li>Side One</li>
-                        <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
+                            <h3>Sides</h3>
+                            <div>
+                                <ul>
+                                <li>Side One</li>
+                                <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
 
-                        <li>Side Two</li>
-                        <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
+                                <li>Side Two</li>
+                                <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
 
-                        <li>Side Three</li>
-                        <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
-
-                        <li>Side Four</li>
-                        <p>Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end.<p>
-
-                        <li>Side Five</li>
-                        <p>Romantic fall-off-the-bone butternut chuck rice burgers.<p>
+                                <li>Side Three</li>
+                                <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
 
 
-                    </ul>
-            </div>
+                                </ul>
+                            </div>
 
-            <h3>Bevereages</h3>
-            <div>
-                <ul>
-                    <li>Beverage One</li>Side
-                    <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
+                    <h3>Beverages</h3>
+                    <div>
+                        <ul>
+                            <li>Beverage One</li>Side
+                            <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
 
-                    <li>Beverage Two</li>
-                    <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
+                            <li>Beverage Two</li>
+                            <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
 
-                    <li>Beverage Three</li>
-                    <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
+                            <li>Beverage Three</li>
+                            <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
 
-                    <li>Beverage Four</li>
-                    <p>Flavor centerpiece plate, delicious ribs bone-in meat, excess chef end.<p>
+                        </ul>
+                    </div>
 
-                    <li>Beverage Five</li>
-                    <p>Romantic fall-off-the-bone butternut chuck rice burgers.<p>
-                </ul>
-            </div>
-            <!-- <h3>Section 4</h3>
-            <div>
-                <p>
-                Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                mauris vel est.
-                </p>
-                <p>
-                Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                inceptos himenaeos.
-                </p>
-            </div> -->
+
+                    <!-- <h3>Section 4</h3>
+                    <div>
+                        <p>
+                        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+                        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+                        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+                        mauris vel est.
+                        </p>
+                        <p>
+                        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+                        inceptos himenaeos.
+                        </p>
+                    </div> -->
         </div>
     </div>
 <!-- 
