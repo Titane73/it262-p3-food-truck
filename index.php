@@ -7,25 +7,28 @@ $subtotal = 0;
 $total = 0;
 $taxrate = 0;
 $menu_entrees = array();
+$menu_sides = array();
+$menu_beverages = array();
 $cart = array();
 
 // Fill up the menu arrays with data
-$menu_entrees[] = new MenuItem ('Boneless Chicken Thigh Teriyaki', 6.95, 'The classic teriyaki dish, delicious dark meat cooked in a sweet sauce.');
-$menu_entrees[] = new MenuItem ('Spicy Chicken Teriyaki', 7.55, 'Breast meat cooked in our special house-made hot sauce.');
-$menu_entrees[] = new MenuItem ('Pork Teriyaki', 7.65, 'Pork grilled to perfection in our teriyaki sauce.');
-$menu_entrees[] = new MenuItem ('Chicken Katsu', 8.55, 'A chicken cutlet breaded and deep fried with our special blend of bread crumbs.');
-$menu_entrees[] = new MenuItem ('Beef Teriyaki', 7.95, 'Locally sourced grass-fed beef.');
+$menu_entrees[] = new MenuItem('e1', 'Boneless Chicken Thigh Teriyaki', 6.95, 'The classic teriyaki dish, delicious dark meat cooked in a sweet sauce.');
+$menu_entrees[] = new MenuItem('e2', 'Spicy Chicken Teriyaki', 7.55, 'Breast meat cooked in our special house-made hot sauce.');
+$menu_entrees[] = new MenuItem('e3', 'Pork Teriyaki', 7.65, 'Pork grilled to perfection in our teriyaki sauce.');
+$menu_entrees[] = new MenuItem('e4', 'Chicken Katsu', 8.55, 'A chicken cutlet breaded and deep fried with our special blend of bread crumbs.');
+$menu_entrees[] = new MenuItem('e5', 'Beef Teriyaki', 7.95, 'Locally sourced grass-fed beef.');
+$menu_entrees[] = new MenuItem('e6', 'Yakisoba', 8.65, 'Fried noodles with your choice of meat & vegetables.');
 
 // Fill up the menu arrays with data
-$menu_sides[] = new MenuItem ('Gyoza', 3.95, 'Six delicious gyoza, stuffed with a mix of steamed vegetables.');
-$menu_sides[] = new MenuItem ('Egg Rolls', 5.55, 'Three rolls, stuffed with shrimp and vegetables, comes with spicy sauce.');
-$menu_sides[] = new MenuItem ('Steamed Veggies', 2.65, 'Pork grilled to perfection in our teriyaki sauce.');
+$menu_sides[] = new MenuItem('s1', 'Gyoza', 3.95, 'Six delicious gyoza, stuffed with a mix of steamed vegetables.');
+$menu_sides[] = new MenuItem('s2', 'Egg Rolls', 5.55, 'Three rolls, stuffed with shrimp and vegetables, comes with spicy sauce.');
+$menu_sides[] = new MenuItem('s3', 'Steamed Veggies', 2.65, 'Pork grilled to perfection in our teriyaki sauce.');
 
 
 // Fill up the menu arrays with data
-$menu_beverages[] = new MenuItem ('Thai Iced Coffee', 2.95, 'Espresso swirled with sweet condensed milk.');
-$menu_beverages[] = new MenuItem ('Iced Tea', 2.95, 'House blend of black and green teas.');
-$menu_beverages[] = new MenuItem ('Cola', 2.25, 'Choice of cola, variety of flavors.');
+$menu_beverages[] = new MenuItem('b1', 'Thai Iced Coffee', 2.95, 'Espresso swirled with sweet condensed milk.');
+$menu_beverages[] = new MenuItem('b2', 'Iced Tea', 2.95, 'House blend of black and green teas.');
+$menu_beverages[] = new MenuItem('b3', 'Cola', 2.25, 'Choice of cola, variety of flavors.');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we have received POST data
 
@@ -57,11 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-    $( function() {
-        $( "#accordion" ).accordion();
-    } );
+        $(function() {
+            $("#accordion").accordion();
+        });
     </script>
-   
+
 
 </head>
 
@@ -69,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
     <div>
         <h1 class="logo">
-        <span class="outline">Yoshi's Teriyaki</span>
+            <span class="outline">Yoshi's Teriyaki</span>
         </h1>
 
     </div>
@@ -81,126 +84,60 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
         <div id="menu" class="column1">
 
+            <form action="" method="POST">
+                <div id="accordion">
 
-            <div id="accordion">
+                    <h3>Entrees</h3>
 
-                        <h3>Entrees</h3>
-                            <ul>
-                             <?php
-                                foreach($menu_entrees as $item){
-                                  echo "<li>{$item->name}</li>";
-                                  echo "<p>{$item->description}</p>";
-                                }
-                            ?>  
-                            
+                    <div>
+                        <ul>
+                            <?php
+                            foreach ($menu_entrees as $item) {
+                                echo "<li>{$item->name}</li>";
+                                echo "<p>{$item->description}</p>";
+                                echo "<input type='number' name='{$item->menu_id}'>";
+                            }
+                            ?>
                         </ul>
-                                    
-                            <h3>Sides</h3>
-                            <div>
-                                <ul>
-                                <?php
-                                foreach($menu_sides as $item){
-                                  echo "<li>{$item->name}</li>";
-                                  echo "<p>{$item->description}</p>";
-                                }
-                            ?>  
-
-
-                                </ul>
-                            </div>
-
+                    </div>
+                    <h3>Sides</h3>
+                    <div>
+                        <ul>
+                            <?php
+                            foreach ($menu_sides as $item) {
+                                echo "<li>{$item->name}</li>";
+                                echo "<p>{$item->description}</p>";
+                                echo "<input type='number' name='{$item->menu_id}'>";
+                            }
+                            ?>
+                        </ul>
+                    </div>
                     <h3>Beverages</h3>
                     <div>
                         <ul>
-                        <?php
-                                foreach($menu_beverages as $item){
-                                  echo "<li>{$item->name}</li>";
-                                  echo "<p>{$item->description}</p>";
-                                }
-                            ?>  
-
+                            <?php
+                            foreach ($menu_beverages as $item) {
+                                echo "<li>{$item->name}</li>";
+                                echo "<p>{$item->description}</p>";
+                                echo "<input type='number' name='{$item->menu_id}'>";
+                            }
+                            ?>
                         </ul>
                     </div>
-
-
-                    <!-- <h3>Section 4</h3>
-                    <div>
-                        <p>
-                        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                        mauris vel est.
-                        </p>
-                        <p>
-                        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                        inceptos himenaeos.
-                        </p>
-                    </div> -->
-
-        </div>
-    </div>
-
-    <div id="Details" class="column2">
-        <div id="MenuForm">
-            <div class="detailsWindow">
-                <div class="detailsText">
-                <h4>Menu Item</h4>
-                <p>Ipsum to be replaced with code.  Sweet soften dinners, cover mustard infused skillet, Skewers on culinary experience.</p>
                 </div>
-            </div>
+                <button type="submit" value="Add to cart!">
+            </form>
+        </div>
+
+        <div id="Details" class="column2">
             <br>
-            <div id="controls" class="flexContainer">
-                
-                <div id="PlusMinus">
-                    <button id="minus">−</button>
-                    <input type="number" value="0" id="input" disable/>
-                    <button id="plus">+</button>
-                </div>
-                <div id="AddToCart">
-                    <input type="button" value="Add to Cart">
-                </div>
-            </div>
-        </div>
-        
-        <br>
-                <!-- <fieldset class="addons">
-                <legend id="Addons">Delicious Extras</legend>
-                    <label><input type="checkbox" id="addon1" name="addon1" value="addon1">Addon 1</label>
-                    <br>
-                    <label><input type="checkbox" id="addon2" name="addon2" value="addon2">Addon 2</label>
-                    <br>
-                    <label><input type="checkbox" id="addon3" name="addon3" value="addon3">Addon 3</label>
-                    <br>
-                    <label><input type="checkbox" id="addon4" name="addon4" value="addon4">Addon 4</label>
-                    <br>
-                    <label><input type="checkbox" id="addon5" name="addon5" value="addon5">Addon 5</label>
-                    <br>
-                    <label><input type="checkbox" id="addon6" name="addon6" value="addon6">Addon 6</label>
-                    <br>
-                    <input type="submit" value="Add to Cart">
-                    
-                </fieldset>
-            </div> -->
             <div id="cart" class="column2">
-                <p> Juicy smoker soy sauce burgers brisket. polenta mustard hunk greens. Wine technique snack skewers chuck excess. Oil heat slowly. slices natural delicious, set aside magic tbsp skillet, bay leaves brown centerpiece. fruit soften edges frond slices onion snack pork steem on wines excess technique cup; Cover smoker soy sauce fruit snack. Sweet one-dozen scrape delicious, non sheet raw crunch mustard. Minutes clever slotted tongs scrape, brown steem undisturbed rice.</p>
+            <?php
+
+            ?>
             </div>
         </div>
-    </form>
+        </form>
 </body>
-<script>
-    const minusButton = document.getElementById('minus');
-    const plusButton = document.getElementById('plus');
-    const inputField = document.getElementById('input');
-    minusButton.addEventListener('click', event => {
-    event.preventDefault();
-    const currentValue = Number(inputField.value) || 0;
-    inputField.value = currentValue - 1;
-    });
-    plusButton.addEventListener('click', event => {
-    event.preventDefault();
-    const currentValue = Number(inputField.value) || 0;
-    inputField.value = currentValue + 1;
-    });
-</script>
+
 </html>
