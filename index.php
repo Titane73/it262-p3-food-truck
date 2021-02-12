@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                     <input type="button" value="Add to Cart">
                 </div>
             </div>
-        </div> -->
+        </div>
         
         <br>
                 <!-- <fieldset class="addons">
