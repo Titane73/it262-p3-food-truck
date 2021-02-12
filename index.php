@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                         Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
                         inceptos himenaeos.
                         </p>
-                    </div>
+                    </div> -->
 
         </div>
     </div>
