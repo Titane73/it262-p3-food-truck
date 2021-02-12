@@ -57,8 +57,14 @@ p {
 }
 
 /* Create three equal columns that floats next to each other */
-.column {
+.column1 {
   width: 30%;
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 255);
+  margin: 0.5em;
+}
+.column2 {
+  width: 60%;
   padding: 10px;
   border: 2px solid rgb(0, 0, 255);
   margin: 0.5em;

@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
     <div class="columnContainer">
 
-        <div id="menu" class="column">
+        <div id="menu" class="column1">
 
 
             <div id="accordion">
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
         </div>
     </div>
 
-    <div id="Details" class="column">
+    <div id="Details" class="column2">
         <div id="MenuForm">
             <div class="detailsWindow">
                 <div class="detailsText">
