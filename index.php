@@ -1,6 +1,6 @@
 <?php
 // Includes!
-include 'MenuItem.php';
+include 'classes/MenuItem.php';
 
 // Declare variables
 $subtotal = 0;
@@ -15,6 +15,17 @@ $menu_entrees[] = new MenuItem ('Spicy Chicken Teriyaki', 7.55, 'Breast meat coo
 $menu_entrees[] = new MenuItem ('Pork Teriyaki', 7.65, 'Pork grilled to perfection in our teriyaki sauce.');
 $menu_entrees[] = new MenuItem ('Chicken Katsu', 8.55, 'A chicken cutlet breaded and deep fried with our special blend of bread crumbs.');
 $menu_entrees[] = new MenuItem ('Beef Teriyaki', 7.95, 'Locally sourced grass-fed beef.');
+
+// Fill up the menu arrays with data
+$menu_sides[] = new MenuItem ('Gyoza', 3.95, 'Six delicious gyoza, stuffed with a mix of steamed vegetables.');
+$menu_sides[] = new MenuItem ('Egg Rolls', 5.55, 'Three rolls, stuffed with shrimp and vegetables, comes with spicy sauce.');
+$menu_sides[] = new MenuItem ('Steamed Veggies', 2.65, 'Pork grilled to perfection in our teriyaki sauce.');
+
+
+// Fill up the menu arrays with data
+$menu_beverages[] = new MenuItem ('Thai Iced Coffee', 2.95, 'Espresso swirled with sweet condensed milk.');
+$menu_beverages[] = new MenuItem ('Iced Tea', 2.95, 'House blend of black and green teas.');
+$menu_beverages[] = new MenuItem ('Cola', 2.25, 'Choice of cola, variety of flavors.');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we have received POST data
 
@@ -87,14 +98,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                             <h3>Sides</h3>
                             <div>
                                 <ul>
-                                <li>Side One</li>
-                                <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
-
-                                <li>Side Two</li>
-                                <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
-
-                                <li>Side Three</li>
-                                <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
+                                <?php
+                                foreach($menu_sides as $item){
+                                  echo "<li>{$item->name}</li>";
+                                  echo "<p>{$item->description}</p>";
+                                }
+                            ?>  
 
 
                                 </ul>
@@ -103,14 +112,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                     <h3>Beverages</h3>
                     <div>
                         <ul>
-                            <li>Beverage One</li>Side
-                            <p>Food qualities braise chicken cuts bowl through slices butternut snack.<p>
-
-                            <li>Beverage Two</li>
-                            <p>Tender meat juicy dinners. One-pot low heat plenty of time adobo fat raw soften fruit.<p>
-
-                            <li>Beverage Three</li>
-                            <p>Sweet renders bone-in marrow richness kitchen, fricassee basted pork shoulder.<p>
+                        <?php
+                                foreach($menu_beverages as $item){
+                                  echo "<li>{$item->name}</li>";
+                                  echo "<p>{$item->description}</p>";
+                                }
+                            ?>  
 
                         </ul>
                     </div>
