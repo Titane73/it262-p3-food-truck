@@ -22,7 +22,7 @@ $menu_entrees[] = new MenuItem('e6', 'Yakisoba', 8.65, 'Fried noodles with your 
 // Fill up the menu arrays with data
 $menu_sides[] = new MenuItem('s1', 'Gyoza', 3.95, 'Six delicious gyoza, stuffed with a mix of steamed vegetables.');
 $menu_sides[] = new MenuItem('s2', 'Egg Rolls', 5.55, 'Three rolls, stuffed with shrimp and vegetables, comes with spicy sauce.');
-$menu_sides[] = new MenuItem('s3', 'Steamed Veggies', 2.65, 'Pork grilled to perfection in our teriyaki sauce.');
+$menu_sides[] = new MenuItem('s3', 'Steamed Veggies', 2.65, 'A variety of steamed vegetables.');
 
 
 // Fill up the menu arrays with data
@@ -31,10 +31,35 @@ $menu_beverages[] = new MenuItem('b2', 'Iced Tea', 2.95, 'House blend of black a
 $menu_beverages[] = new MenuItem('b3', 'Cola', 2.25, 'Choice of cola, variety of flavors.');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we have received POST data
-
-    
-
-}
+    // This section will fill up the cart array with all the items that have been chosen
+    foreach($menu_entrees as $item){
+        if (isset($_POST["{$item->menu_id}"])){
+            $x = 0;
+            while($x < $_POST["{$item->menu_id}"]){
+                $cart[] = $item;
+                $x++;
+            } // End while
+        } // End if
+    } // End foreach
+    foreach($menu_sides as $item){
+        if (isset($_POST["{$item->menu_id}"])){
+            $x = 0;
+            while($x < $_POST["{$item->menu_id}"]){
+                $cart[] = $item;
+                $x++;
+            } // End while
+        } // End if
+    } // End foreach
+    foreach($menu_beverages as $item){
+        if (isset($_POST["{$item->menu_id}"])){
+            $x = 0;
+            while($x < $_POST["{$item->menu_id}"]){
+                $cart[] = $item;
+                $x++;
+            } // End while
+        } // End if
+    } // End foreach
+} // End if
 
 ?>
 
@@ -92,36 +117,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                     <div>
                         <ul>
                             <?php
-                            foreach ($menu_entrees as $item) {
-                                echo "<li>{$item->name}</li>";
-                                echo "<p>{$item->description}</p>";
-                                echo "<input type='number' name='{$item->menu_id}'>";
-                            }
-                            ?>
+                            foreach ($menu_entrees as $item): ?>
+                                <li><?=$item->name;?></li>
+                                <p><?=$item->description; ?></p>
+                                <input type='number' name='<?=$item->menu_id;?>' value="<?php 
+                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                        echo $_POST["{$item->menu_id}"];
+                                    }
+                                ?>" />
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <h3>Sides</h3>
                     <div>
                         <ul>
-                            <?php
-                            foreach ($menu_sides as $item) {
-                                echo "<li>{$item->name}</li>";
-                                echo "<p>{$item->description}</p>";
-                                echo "<input type='number' name='{$item->menu_id}'>";
-                            }
-                            ?>
+                        <?php
+                            foreach ($menu_sides as $item): ?>
+                                <li><?=$item->name;?></li>
+                                <p><?=$item->description; ?></p>
+                                <input type='number' name='<?=$item->menu_id;?>' value="<?php 
+                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                        echo $_POST["{$item->menu_id}"];
+                                    }
+                                ?>" />
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <h3>Beverages</h3>
                     <div>
                         <ul>
-                            <?php
-                            foreach ($menu_beverages as $item) {
-                                echo "<li>{$item->name}</li>";
-                                echo "<p>{$item->description}</p>";
-                                echo "<input type='number' name='{$item->menu_id}'>";
-                            }
-                            ?>
+                        <?php
+                            foreach ($menu_beverages as $item): ?>
+                                <li><?=$item->name;?></li>
+                                <p><?=$item->description; ?></p>
+                                <input type='number' name='<?=$item->menu_id;?>' value="<?php 
+                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                        echo $_POST["{$item->menu_id}"];
+                                    }
+                                ?>" />
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
@@ -131,9 +165,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
         <div id="Details" class="column2">
             <br>
-            <div id="cart" class="column2">
+            <div id="cart">
             <?php
-
+                foreach($cart as $item){
+                    echo "<p>{$item->name} - \${$item->price}</p>";
+                    $total += $item->price;
+                }
+                $total = number_format($total, 2);
+                echo "<h2>Your total is: \${$total}";
             ?>
             </div>
         </div>
