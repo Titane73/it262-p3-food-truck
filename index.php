@@ -6,6 +6,9 @@ include 'classes/MenuItem.php';
 $subtotal = 0;
 $total = 0;
 $taxrate = 0;
+$count = 0;
+$item_total = 0;
+$current = "";
 $menu_entrees = array();
 $menu_sides = array();
 $menu_beverages = array();
@@ -36,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
         if (isset($_POST["{$item->menu_id}"])){
             $x = 0;
             while($x < $_POST["{$item->menu_id}"]){
-                $cart[] = $item;
-                $x++;
+                $cart[] = $item; // Put the item in the cart
+                $total += $item->price; // Add the cost of the item to the total
+                $x++; // Increase the iterator
             } // End while
         } // End if
     } // End foreach
@@ -46,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             $x = 0;
             while($x < $_POST["{$item->menu_id}"]){
                 $cart[] = $item;
+                $total += $item->price;
                 $x++;
             } // End while
         } // End if
@@ -55,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             $x = 0;
             while($x < $_POST["{$item->menu_id}"]){
                 $cart[] = $item;
+                $total += $item->price;
                 $x++;
             } // End while
         } // End if
@@ -123,6 +129,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                                 <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         echo $_POST["{$item->menu_id}"];
+                                    } else {
+                                        echo "0";
                                     }
                                 ?>" />
                             <?php endforeach; ?>
@@ -138,6 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                                 <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         echo $_POST["{$item->menu_id}"];
+                                    } else {
+                                        echo "0";
                                     }
                                 ?>" />
                             <?php endforeach; ?>
@@ -153,6 +163,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                                 <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         echo $_POST["{$item->menu_id}"];
+                                    } else {
+                                        echo "0";
                                     }
                                 ?>" />
                             <?php endforeach; ?>
@@ -168,11 +180,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             <div id="cart">
             <?php
                 foreach($cart as $item){
-                    echo "<p>{$item->name} - \${$item->price}</p>";
-                    $total += $item->price;
+                    if ($current != $item->menu_id){
+                        $current = $item->menu_id;
+                        if ($count === 0){
+                            $count = 1;
+                            $item_total = $item->price;
+                        } else {
+                            $item_total = number_format($item_total, 2);
+                            echo " x {$count} - \${$item_total}</p>";
+                            $count = 1;
+                            $item_total = $item->price;
+                        }
+                    } elseif($current === $item->menu_id){
+                        $count++;
+                        $item_total += $item->price;
+                    }
+
+                    if ($count === 1){
+                        echo "<p>{$item->name}";
+                    }
                 }
+                echo " x {$count} - \${$item_total}";
                 $total = number_format($total, 2);
-                echo "<h2>Your total is: \${$total}";
+                echo "<h3>Your total is: \${$total}</h3>";
             ?>
             </div>
         </div>
