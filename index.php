@@ -12,7 +12,7 @@ $menu_beverages = array();
 $cart = array();
 
 // Fill up the menu arrays with data
-$menu_entrees[] = new MenuItem('e1', 'Boneless Chicken Thigh Teriyaki', 6.95, 'The classic teriyaki dish, delicious dark meat cooked in a sweet sauce.');
+$menu_entrees[] = new MenuItem('e1', 'Chicken Teriyaki', 6.95, 'The classic teriyaki dish, delicious dark meat cooked in a sweet sauce.');
 $menu_entrees[] = new MenuItem('e2', 'Spicy Chicken Teriyaki', 7.55, 'Breast meat cooked in our special house-made hot sauce.');
 $menu_entrees[] = new MenuItem('e3', 'Pork Teriyaki', 7.65, 'Pork grilled to perfection in our teriyaki sauce.');
 $menu_entrees[] = new MenuItem('e4', 'Chicken Katsu', 8.55, 'A chicken cutlet breaded and deep fried with our special blend of bread crumbs.');
@@ -41,103 +41,153 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <title>Yoshi's Teriyaki</title>
+        <title>Yoshi's Teriyaki</title>
 
-    <meta charset="utf-8" />
-    <meta name="robots" content="noindex,nofollow" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="IT262 Food Truck Project">
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="IT262 Food Truck Project">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shojumaru&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $("#accordion").accordion();
-        });
-    </script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shojumaru&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $("#accordion").accordion();
+            });
+        </script>
 
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <div>
-        <h1 class="logo">
-            <span class="outline">Yoshi's Teriyaki</span>
-        </h1>
+        <div>
+            <h1 class="logo">
+                <span class="outline">Yoshi's Teriyaki</span>
+            </h1>
 
-    </div>
-
-    <h3 id="Guide">Click on category (Entree, Sides, or Beverage). Click on an item to display details.<br> Choose how many, then Add to Cart. Choose Delicious Extras, then Add to Cart.</h3>
-
-
-    <div class="columnContainer">
-
-        <div id="menu" class="column1">
-
-            <form action="" method="POST">
-                <div id="accordion">
-
-                    <h3>Entrees</h3>
-
-                    <div>
-                        <ul>
-                            <?php
-                            foreach ($menu_entrees as $item) {
-                                echo "<li>{$item->name}</li>";
-                                echo "<p>{$item->description}</p>";
-                                echo "<input type='number' name='{$item->menu_id}'>";
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                    <h3>Sides</h3>
-                    <div>
-                        <ul>
-                            <?php
-                            foreach ($menu_sides as $item) {
-                                echo "<li>{$item->name}</li>";
-                                echo "<p>{$item->description}</p>";
-                                echo "<input type='number' name='{$item->menu_id}'>";
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                    <h3>Beverages</h3>
-                    <div>
-                        <ul>
-                            <?php
-                            foreach ($menu_beverages as $item) {
-                                echo "<li>{$item->name}</li>";
-                                echo "<p>{$item->description}</p>";
-                                echo "<input type='number' name='{$item->menu_id}'>";
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-                <button type="submit" value="Add to cart!">
-            </form>
         </div>
 
-        <div id="Details" class="column2">
-            <br>
-            <div id="cart" class="column2">
-            <?php
+        <h3 id="Guide">Click on category (Entree, Sides, or Beverage). Click on an item to display details.<br> Choose how many, then Add to Cart. Choose Delicious Extras, then Add to Cart.</h3>
 
-            ?>
+
+        <div class="columnContainer">
+
+            <div id="menu" class="column">
+
+                <form action="" method="POST">
+                    <div id="accordion">
+
+                        <h3>Entrees</h3>
+
+                        <div>
+                            <ul>
+                                <?php
+                                foreach ($menu_entrees as $item) {
+                                    echo "<li>{$item->name}</li>";
+                                    /* echo "<img src="<?= $item_img; ?>"/> "; */
+                                    echo "<p>{$item->description}</p>";
+                                    echo "<input type='number' name='{$item->menu_id}'>";
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                        <h3>Sides</h3>
+                        <div>
+                            <ul>
+                                <?php
+                                foreach ($menu_sides as $item) {
+                                    echo "<li>{$item->name}</li>";
+                                    /* echo "<img src="<?= $item_img; ?>"/> "; */
+                                    echo "<p>{$item->description}</p>";
+                                    echo "<input type='number' name='{$item->menu_id}'>";
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                        <h3>Beverages</h3>
+                        <div>
+                            <ul>
+                                <?php
+                                foreach ($menu_beverages as $item) {
+                                    echo "<li>{$item->name}</li>";
+                                    /* echo "<img src="<?= $item_img; ?>"/> "; */
+                                    echo "<p>{$item->description}</p>";
+                                    echo "<input type='number' name='{$item->menu_id}'>";
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="submit" value="Add to cart!">
+                </form>
+            </div>
+
+            <div class="column">
+
+                <div id="Cart">
+
+                    <?php
+                        echo "<ul>
+                            <li>Selections will be itemized here.</li>
+                            <li>Selections will be itemized here.</li>
+                            <li>Selections will be itemized here.</li>
+                            <li>Selections will be itemized here.</li>
+                            </ul>";
+
+                    /*              
+                    
+                    public $seattleTaxrate = 0.101;
+                                        
+                    //  *  Subtotal, before taxes
+                    public function calcSubTotal($item_array){
+                        $subTotal = 0.0;
+                        foreach ($item_array as $item){
+                            $subTotal += ($item->price * $item->quantity);
+                        }
+                        return $subTotal;
+                    }
+                    
+                    // Tax
+                    public function calcTax($item_array){
+                        $tax = ($this->calcSubtotal($itm_array) * $this->SALES_TAX);
+                        return $tax;
+                    }
+                    
+                    // Total price.
+                    
+                    public function getTotal($itm_array){
+                        $total = ($this->getTax($itm_array) + $this->getSubtotal($itm_array));
+                        return $total;
+                    }
+
+                    */
+
+
+                    ?>
+
+                    <div id="Totals">
+
+                        <p>Subtotal: <? php code ?>  </p>
+                        <p>Tax:       </p>
+                        <p>Total:  <   </p>
+
+                    </div>
+
+
+
+
+                    
+                        
+                </div>
             </div>
         </div>
-        </form>
-</body>
-
+    </body>
 </html>

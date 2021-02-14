@@ -57,18 +57,13 @@ p {
 }
 
 /* Create three equal columns that floats next to each other */
-.column1 {
-  width: 30%;
+.column {
+  width: 48%;
   padding: 10px;
   border: 2px solid rgb(0, 0, 255);
   margin: 0.5em;
 }
-.column2 {
-  width: 60%;
-  padding: 10px;
-  border: 2px solid rgb(0, 0, 255);
-  margin: 0.5em;
-}
+
 
 /* Clear floats after the columns */
 .columnContainer:after {
@@ -94,3 +89,25 @@ p {
 .addons label {
   font-family: "Roboto", sans-serif;
 }
+
+
+/* ********** Cart (right column) ********** */
+
+#Cart {
+  border: 2px solid rgb(0, 0, 0);
+  min-height: 400px;
+}
+
+#Cart li{
+  font-family: "Roboto", sans-serif;
+}
+
+#Totals{
+  border: 3px dotted rgb(0, 128, 0);
+  
+}
+
+#Totals p {
+  font: inherit;
+}
+
