@@ -112,19 +112,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
 
     <div class="columnContainer">
-
         <div id="menu" class="column1">
-
             <form action="" method="POST">
                 <div id="accordion">
-
                     <h3>Entrees</h3>
-
                     <div>
                         <ul>
                             <?php
                             foreach ($menu_entrees as $item): ?>
-                                <li><?=$item->name;?></li>
+                                <li><?=$item->name;?> - $<?=$item->price; ?></li>
                                 <p><?=$item->description; ?></p>
                                 <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -141,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                         <ul>
                         <?php
                             foreach ($menu_sides as $item): ?>
-                                <li><?=$item->name;?></li>
+                                <li><?=$item->name;?> - $<?=$item->price; ?></li>
                                 <p><?=$item->description; ?></p>
                                 <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -158,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                         <ul>
                         <?php
                             foreach ($menu_beverages as $item): ?>
-                                <li><?=$item->name;?></li>
+                                <li><?=$item->name;?> - $<?=$item->price; ?></li>
                                 <p><?=$item->description; ?></p>
                                 <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -206,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             ?>
             </div>
         </div>
-        </form>
+    </div>
 </body>
 
 </html>
