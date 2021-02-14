@@ -5,7 +5,8 @@ include 'classes/MenuItem.php';
 // Declare variables
 $subtotal = 0;
 $total = 0;
-$taxrate = 0;
+$tax_rate = 0.101;
+$tax = 0;
 $count = 0;
 $item_total = 0;
 $current = "";
@@ -183,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                             $item_total = $item->price;
                         } else {
                             $item_total = number_format($item_total, 2);
-                            echo " x {$count} - \${$item_total}</p>";
+                            echo " x {$count} - \${$item_total}</p>"; // Displays the second half of each item, including total price and quantity
                             $count = 1;
                             $item_total = $item->price;
                         }
@@ -193,12 +194,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                     }
 
                     if ($count === 1){
-                        echo "<p>{$item->name}";
+                        echo "<p>{$item->name}"; // Displays the name of each item
                     }
                 }
                 echo " x {$count} - \${$item_total}";
                 $total = number_format($total, 2);
-                echo "<h3>Your total is: \${$total}</h3>";
+                echo "<h3>Subtotal: \${$total}</h3>";
+                $tax = number_format(($total * $tax_rate), 2);
+                echo "<h3>Tax: \${$tax}</h3>";
+                $total += $tax;
+                echo "<h2>Total: \${$total}";
             ?>
             </div>
         </div>
