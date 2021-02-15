@@ -1,15 +1,22 @@
 /*  main.css */
 
 /* ********** DEFAULT CSS ********** */
+* {
+  border-radius: 5px;
+
+}
+
 html {
-  background-color: rgb(0, 150, 250);
-  font-family: "Shojumaru", Times, serif;
+  background-color: rgb(17, 41, 65);
+  font-family: "Times New Roman", Times, serif;
+  color: rgb(3, 11, 19);
+ 
 }
 
 body {
   margin: 5px;
-  background-color: rgba(255, 255, 255, 0.65);
-  border: 5px double rgba(175, 0, 0, 0.5);
+  background-color: rgb(158, 205, 255);
+  border: 5px double rgb(100, 30, 21);
 }
 
 h1,
@@ -17,6 +24,7 @@ h2,
 h3 {
   text-align: center;
 }
+
 
 p {
   font-family: "Roboto", sans-serif;
@@ -26,28 +34,23 @@ p {
 /* ********** Banner ********** */
 
 .logo {
+  color: rgb(2, 22, 7);
+  font-size: 3em;
   width: 80%;
   margin: 10px auto;
   padding: 5px;
   position: relative;
   z-index: 0;
-  border: 7px solid rgb(255, 217, 0);
-  background: rgb(174, 252, 255);
+  border: 7px solid rgb(100, 68, 21);
+  background: rgb(138, 180, 224);
   background-clip: padding-box;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-}
-
-.outline {
-  color: rgb(1, 173, 1);
-  font-size: 1.5em;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: rgb(1, 173, 1);
-  color: transparent;
 }
 
 #Guide {
   font-family: "Roboto", sans-serif;
 }
+
 
 /* ********** Columns ********** */
 
@@ -56,58 +59,96 @@ p {
   justify-content: center;
 }
 
-/* Create three equal columns that floats next to each other */
+/* Create equal columns that floats next to each other */
 .column {
   width: 48%;
   padding: 10px;
-  border: 2px solid rgb(0, 0, 255);
-  margin: 0.5em;
+  border: 2px solid rgb(17, 41, 65);
+  margin: 10px;
+  background-color: rgb(255, 234, 231);
 }
 
-
-/* Clear floats after the columns */
-.columnContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* ********** Menu (left column) ********** */
 
-#MenuForm {
-  padding: 0.25em;
-  border: 2px solid rgb(0, 70, 0);
+/* menu headers */
+.category_header {
+  font-size: 1.75em;
+  font-weight: bold;
+  border: 2px solid rgb(2, 22, 7);
+  background-color: rgb(255, 255, 255);
 }
 
-#menu h3 {
+.category_header:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0,0,0);
+
+}
+
+
+/* menu detail */
+#MenuDetail li {
   font-size: 1.25em;
-  border: 2px solid rgb(255, 255, 255);
+}
+/* menu detail */
+#MenuDetail p {
+  text-align: justify;
+  font-size: 1em;
 }
 
-/* ********** Addons ********** */
-
-.addons label {
-  font-family: "Roboto", sans-serif;
+input[type=number] {
+  float: right;
+  width: 50px;
+  
 }
+
+input[type=number] {
+  clear: left;
+}
+
+
+/* Update Cart Button */
+.update_container {
+  text-align: center;
+}
+
+#UpdateCart {
+  width: 90%;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: rgb(138, 180, 224);
+  border: 3px solid rgb(42, 127, 64);
+  
+}
+
+#UpdateCart:hover {
+  background-color: rgb(87, 255, 132);;
+  border: 3px dotted rgb(138, 180, 224);
+}
+
 
 
 /* ********** Cart (right column) ********** */
 
-#Cart {
+#CartDetail {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 5px;
+  padding: 5px;
   border: 2px solid rgb(0, 0, 0);
-  min-height: 400px;
+  min-height: 60%;
+  text-align: center;
 }
-
 #Cart li{
   font-family: "Roboto", sans-serif;
 }
 
 #Totals{
-  border: 3px dotted rgb(0, 128, 0);
+  min-height: 30%;
+  margin: 10px 5px;
+  border: 3px dotted rgb(42, 127, 64);
   
 }
 
-#Totals p {
-  font: inherit;
-}
+
 
