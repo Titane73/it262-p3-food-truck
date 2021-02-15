@@ -71,6 +71,10 @@ p {
 
 /* ********** Menu (left column) ********** */
 
+.accordion {
+  overflow: scroll;
+}
+
 /* menu headers */
 .category_header {
   font-size: 1.75em;
@@ -157,4 +161,10 @@ input[type=number] {
 }
 
 
+/* ********** Media Queries ********** */
 
+@media only screen and (max-width: 999) {
+  #MenuDetail p {
+    font-size: .75em;
+  }
+}
