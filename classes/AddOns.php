@@ -1,5 +1,7 @@
 <?php
 
+// AddOns.php  - Possible code to be added, maybe...
+
 class AddOns {
     public $name = '';
     public $price = 0;
