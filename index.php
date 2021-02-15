@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
         <meta name="description" content="IT262 Food Truck Project">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shojumaru&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href="css/main.css" />
         
@@ -113,106 +113,117 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
         
 
 
- <div class="columnContainer">
-        <div id="MenuDetail" class="column">
-            <form action="" method="POST">
-                <div id="accordion">
-                    <h3 class="category_header">Entrees</h3>
-                    <div class="menu_category">
-                        <ul>
+        <div class="columnContainer">
+
+            <div id="MenuDetail" class="column">
+
+                <form action="" method="POST">
+
+                    <div id="accordion">
+
+                        <h3 class="category_header">Entrees</h3>
+
+                        <div class="menu_category">
+                            <ul>
+                                <?php
+                                foreach ($menu_entrees as $item): ?>
+                                    <li><?=$item->name;?> - $<?=$item->price; ?>
+                                    <input type='number' name='<?=$item->menu_id;?>' value="<?php 
+                                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                            echo $_POST["{$item->menu_id}"];
+                                        } else {
+                                            echo "0";
+                                        }
+                                    ?>" /></li>
+                                    <p><?=$item->description; ?></p>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
+
+                        <h3 class="category_header">Sides</h3>
+
+                        <div class="menu_category">
+                            <ul>
                             <?php
-                            foreach ($menu_entrees as $item): ?>
-                                <li><?=$item->name;?> - $<?=$item->price; ?>
-                                <input type='number' name='<?=$item->menu_id;?>' value="<?php 
-                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                                        echo $_POST["{$item->menu_id}"];
-                                    } else {
-                                        echo "0";
-                                    }
-                                ?>" /></li>
-                                <p><?=$item->description; ?></p>
-                            <?php endforeach; ?>
-                        </ul>
+                                foreach ($menu_sides as $item): ?>
+                                    <li><?=$item->name;?> - $<?=$item->price; ?>
+                                    <input type='number' name='<?=$item->menu_id;?>' value="<?php 
+                                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                            echo $_POST["{$item->menu_id}"];
+                                        } else {
+                                            echo "0";
+                                        }
+                                    ?>" /></li>
+                                    <p><?=$item->description; ?></p>
+                                    
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
+                        <h3 class="category_header">Beverages</h3>
+
+                        <div class="menu_category">
+                            <ul>
+                            <?php
+                                foreach ($menu_beverages as $item): ?>
+                                    <li><?=$item->name;?> - $<?=$item->price; ?>
+                                    <input type='number' name='<?=$item->menu_id;?>' value="<?php 
+                                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                            echo $_POST["{$item->menu_id}"];
+                                        } else {
+                                            echo "0";
+                                        }
+                                    ?>" /></li>
+                                    <p><?=$item->description; ?></p>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+
                     </div>
-                    <h3 class="category_header">Sides</h3>
-                    <div class="menu_category">
-                        <ul>
-                        <?php
-                            foreach ($menu_sides as $item): ?>
-                                <li><?=$item->name;?> - $<?=$item->price; ?>
-                                <input type='number' name='<?=$item->menu_id;?>' value="<?php 
-                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                                        echo $_POST["{$item->menu_id}"];
-                                    } else {
-                                        echo "0";
-                                    }
-                                ?>" /></li>
-                                <p><?=$item->description; ?></p>
-                                
-                            <?php endforeach; ?>
-                        </ul>
+
+                    <div class="update_container">
+                        <input id="UpdateCart" type="submit" value="Update Cart">
                     </div>
-                    <h3 class="category_header">Beverages</h3>
-                    <div class="menu_category">
-                        <ul>
-                        <?php
-                            foreach ($menu_beverages as $item): ?>
-                                <li><?=$item->name;?> - $<?=$item->price; ?>
-                                <input type='number' name='<?=$item->menu_id;?>' value="<?php 
-                                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                                        echo $_POST["{$item->menu_id}"];
-                                    } else {
-                                        echo "0";
-                                    }
-                                ?>" /></li>
-                                <p><?=$item->description; ?></p>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="update_container">
-                    <input id="UpdateCart" type="submit" value="Update Cart">
-                </div>
+                </form>
 
-            </form>
-        </div>
-
-        <div class="column cart_container">
-
-            <div id="CartDetail">
-                    
-                <?php
-                    foreach($cart as $item){
-                        if ($current != $item->menu_id){
-                            $current = $item->menu_id;
-                            if ($count === 0){
-                                $count = 1;
-                                $item_total = $item->price;
-                            } else {
-                                $item_total = number_format($item_total, 2);
-                                echo " x {$count} - \${$item_total}</p>"; // Displays the second half of each item, including total price and quantity
-                                $count = 1;
-                                $item_total = $item->price;
-                            }
-                        } elseif($current === $item->menu_id){
-                            $count++;
-                            $item_total += number_format($item->price, 2);
-                            
-                        }
-
-                        if ($count === 1){
-                            echo "<p>{$item->name}"; // Displays the name of each item
-                            
-                        }
-                    }
-                    echo " x {$count} - \${$item_total}";
-                ?>
             </div>
 
-            <div id="Totals">
+            <div class="column cart_container">
 
-                <table>
+                <div id="CartDetail">
+                    <h3>Your Cart:</h3>
+                        
+                    <?php
+                        foreach($cart as $item){
+                            if ($current != $item->menu_id){
+                                $current = $item->menu_id;
+                                if ($count === 0){
+                                    $count = 1;
+                                    $item_total = $item->price;
+                                } else {
+                                    $item_total = number_format($item_total, 2);
+                                    echo " x {$count} - \${$item_total}</p>"; // Displays the second half of each item, including total price and quantity
+                                    $count = 1;
+                                    $item_total = $item->price;
+                                }
+                            } elseif($current === $item->menu_id){
+                                $count++;
+                                $item_total += number_format($item->price, 2);
+                                
+                            }
+
+                            if ($count === 1){
+                                echo "<p>{$item->name}"; // Displays the name of each item
+                                
+                            }
+                        }
+                        echo " x {$count} - \${$item_total}";
+                    ?>
+                </div>
+
+                <div id="Totals">
 
                     <?php
                         $total = number_format($total, 2);
@@ -225,13 +236,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                         echo "<h2>Total: \${$total}";
                     ?>
 
-                </table>
-            </div>
+                    <p>Thank you for your order!<p>
 
-        
+
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 
 </html>

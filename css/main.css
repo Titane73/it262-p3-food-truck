@@ -27,7 +27,7 @@ h3 {
 
 
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: justify;
 }
 
@@ -48,7 +48,7 @@ p {
 }
 
 #Guide {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -116,7 +116,7 @@ input[type=number] {
   width: 90%;
   font-size: 2em;
   font-weight: bold;
-  background-color: rgb(138, 180, 224);
+  background-color: rgb(184, 217, 253);
   border: 3px solid rgb(42, 127, 64);
   
 }
@@ -136,18 +136,24 @@ input[type=number] {
   margin: 5px;
   padding: 5px;
   border: 2px solid rgb(0, 0, 0);
-  min-height: 60%;
+  min-height: 55%;
   text-align: center;
 }
 #Cart li{
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #Totals{
-  min-height: 30%;
+  min-height: 35%;
   margin: 10px 5px;
   border: 3px dotted rgb(42, 127, 64);
   
+}
+
+#Totals p {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: rgb(17, 41, 65);
 }
 
 
