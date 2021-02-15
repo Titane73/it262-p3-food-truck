@@ -219,6 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                                 
                             }
                         }
+                        $item_total = number_format($item_total, 2);
                         echo " x {$count} - \${$item_total}";
                     ?>
                 </div>
