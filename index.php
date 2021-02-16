@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css" />
-        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/style.css" />
         
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -193,6 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             <div class="column cart_container">
 
                 <div id="CartDetail">
+                    <?php if (!empty($cart)) { ?>
                     <h3>Your Cart:</h3>
                         
                     <?php
@@ -204,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                                     $item_total = $item->price;
                                 } else {
                                     $item_total = number_format($item_total, 2);
-                                    echo " x {$count} - \${$item_total}</p>"; // Displays the second half of each item, including total price and quantity
+                                    echo " x {$count} <span class='total'>\${$item_total}</span></p>"; // Displays the second half of each item, including total price and quantity
                                     $count = 1;
                                     $item_total = $item->price;
                                 }
@@ -220,10 +221,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                             }
                         }
                         $item_total = number_format($item_total, 2);
-                        echo " x {$count} - \${$item_total}";
+                        echo " x {$count} <span class='total'>\${$item_total}</total></p>";
                     ?>
+                <?php
+                    } else {
+                        echo "<h2>Add items to your cart using the form to the left.</h2>";
+                        echo "<h3>Click the button at the bottom to update the total!</h3>";
+                    }
+                ?>
                 </div>
-
+                <?php if (!empty($cart)) { ?>
                 <div id="Totals">
 
                     <?php
@@ -241,6 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
 
                 </div>
+                <?php } ?>
             </div>
         </div>
     </body>
