@@ -157,6 +157,10 @@ input[type=number] {
   color: rgb(17, 41, 65);
 }
 
+.total{
+  float: right;
+}
+
 
 /* ********** Media Queries ********** */
 
