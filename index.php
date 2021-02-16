@@ -224,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                 <?php
                     } else {
                         echo "<h2>Please choose items from the menu.</h2>";
-                        echo "<h3>Click the Update Menu to see your total.</h3>";
+                        echo "<h3>Click the <strong>'Update Cart'</strong> to see your total.</h3>";
                     }
                 ?>
                 </div>
