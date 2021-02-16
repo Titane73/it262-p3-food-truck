@@ -9,8 +9,6 @@ class MenuItem {
     public $price = 0;
     public $description = '';
     
-    public $extras = array();
-
     public function __construct($menu_id, $name, $price, $description)
     {
         $this->menu_id = $menu_id;

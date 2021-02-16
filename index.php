@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css" />
-        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/style.css" />
         
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -100,11 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
     <body>
 
-        <div>
-            <h1 class="logo">
-                <span class="outline">Yoshi's Teriyaki</span>
-            </h1>
-
+        <div class="logo_container">
+            <img src="images/yoshi_logo.png" alt="imaginary logo">
+            
         </div>
 
         <h3 id="Guide">Click on category (Entree, Sides, or Beverage). Enter the number of each item desired, then click Update Cart.</h3>
