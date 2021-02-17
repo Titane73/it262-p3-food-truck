@@ -42,8 +42,14 @@ p {
   width: 50%;
 }
 
+.logo img {
+  height: 90px;
+}
+
 #Guide {
+  margin: 3px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 
@@ -52,7 +58,7 @@ p {
 .columnContainer {
   display: flex;
   justify-content: center;
-  margin: 2em;
+  margin: 5px 2em 5px 2em;
 
 }
 
@@ -94,7 +100,7 @@ p {
 /* menu detail */
 #MenuDetail p {
   text-align: justify;
-  font-size: 1em;
+  font-size: .90em;
 }
 
 input[type=number] {
@@ -115,7 +121,7 @@ input[type=number] {
 
 #UpdateCart {
   width: 90%;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   background-color: rgb(184, 217, 253);
   border: 3px solid rgb(42, 127, 64);
@@ -160,6 +166,9 @@ input[type=number] {
 .total{
   float: right;
 }
+
+
+/* ********** Footer ********** */
 
 .footer p{
   text-align: center;

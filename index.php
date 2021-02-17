@@ -105,8 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             
         </div>
 
-        <h3 id="Guide">Click on category (Entree, Sides, or Beverage). Enter the number of each item desired, then click Update Cart.</h3>
-        <h3 id="Guide">To remove an item, adjust the desired number then click Update Cart.</h3>
+        <p id="Guide">Click on category (Entree, Sides, or Beverage). Enter the number of each item desired, then click Update Cart.<br>To remove an item, adjust the desired number then click Update Cart.</p>
 
         
 
