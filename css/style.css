@@ -161,6 +161,11 @@ input[type=number] {
   float: right;
 }
 
+.footer p{
+  text-align: center;
+  font-size: small;
+}
+
 
 /* ********** Media Queries ********** */
 
@@ -169,3 +174,5 @@ input[type=number] {
     font-size: .75em;
   }
 }
+
+

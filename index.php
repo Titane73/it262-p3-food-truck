@@ -250,6 +250,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             </div>
         </div>
     </body>
+    <footer class="footer">
+
+	    <p>&copy; 2020 ~ Yoshi's Teriyaki ~ All rights reserved <br> <a href="https://docs.google.com/document/d/109YDv6L_6a3HujT3FmWid61y7CRKqn6hLDJuSDm_Hys/edit?usp=sharing" target="_blank">Project Document</a> ~ <a href="https://github.com/Titane73/it262-p3-food-truck" target="_blank">GitHub Repo</a></p>
+
+	</footer>
 
 
 </html>
