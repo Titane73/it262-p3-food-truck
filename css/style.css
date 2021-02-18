@@ -42,14 +42,8 @@ p {
   width: 50%;
 }
 
-.logo img {
-  height: 90px;
-}
-
 #Guide {
-  margin: 3px;
   font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
 }
 
 
@@ -58,7 +52,7 @@ p {
 .columnContainer {
   display: flex;
   justify-content: center;
-  margin: 5px 2em 5px 2em;
+  margin: 2em;
 
 }
 
@@ -96,23 +90,36 @@ p {
 /* menu detail */
 #MenuDetail li {
   font-size: 1.25em;
+  list-style-type: none;
+  width: 100%;
 }
 /* menu detail */
 #MenuDetail p {
   text-align: justify;
-  font-size: .90em;
+  font-size: 1em;
 }
 
 input[type=number] {
   float: right;
   width: 50px;
-  
-}
-
-input[type=number] {
   clear: left;
+  font-weight: bold;
 }
 
+/* thumbnail images */
+img.thumb{
+  width: 100px;
+  height: 100px;
+  padding: 4px;
+  border: 1px solid red;
+  margin: 4px;
+}
+/* Wrapper around entree menu items to make the images work */
+div.item_wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 
 /* Update Cart Button */
 .update_container {
@@ -121,7 +128,7 @@ input[type=number] {
 
 #UpdateCart {
   width: 90%;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
   background-color: rgb(184, 217, 253);
   border: 3px solid rgb(42, 127, 64);
@@ -168,14 +175,6 @@ input[type=number] {
 }
 
 
-/* ********** Footer ********** */
-
-.footer p{
-  text-align: center;
-  font-size: small;
-}
-
-
 /* ********** Media Queries ********** */
 
 @media only screen and (max-width: 999) {
@@ -183,5 +182,3 @@ input[type=number] {
     font-size: .75em;
   }
 }
-
-

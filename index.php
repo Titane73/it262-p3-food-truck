@@ -22,17 +22,23 @@ $menu_entrees[] = new MenuItem('e1', 'Chicken Teriyaki', 6.95, 'The classic teri
 $menu_entrees[] = new MenuItem('e2', 'Spicy Chicken Teriyaki', 7.55, 'Breast meat cooked in our special house-made hot sauce.');
 $menu_entrees[] = new MenuItem('e3', 'Chicken Katsu', 8.55, 'A chicken cutlet breaded and deep fried with our special blend of bread crumbs.');
 $menu_entrees[] = new MenuItem('e4', 'Yakisoba', 8.65, 'Fried noodles with your choice of meat & vegetables.');
+$menu_entrees[] = new MenuItem('e5', 'Salmon Teriyaki', 11.75, 'Delicious local salmon in our signature sauce.');
+$menu_entrees[] = new MenuItem('e6', 'Chicken & Gyoza Combo', 5.95, 'Half order of teriyaki chicken with 6 of our fresh gyoza.');
 
 // Fill up the menu arrays with data
 $menu_sides[] = new MenuItem('s1', 'Gyoza', 3.95, 'Six delicious gyoza, stuffed with a mix of steamed vegetables.');
 $menu_sides[] = new MenuItem('s2', 'Egg Rolls', 5.55, 'Three rolls, stuffed with shrimp and vegetables, comes with spicy sauce.');
 $menu_sides[] = new MenuItem('s3', 'Steamed Veggies', 2.65, 'A variety of steamed vegetables.');
+$menu_sides[] = new MenuItem('s4', 'Extra Rice', 1.65, 'An extra helping of sticky white rice.');
+$menu_sides[] = new MenuItem('s5', 'Miso Soup', 1.95, 'A hearty bowl of steaming miso soup.');
 
 
 // Fill up the menu arrays with data
-$menu_beverages[] = new MenuItem('b1', 'Thai Iced Coffee', 2.95, 'Espresso swirled with sweet condensed milk.');
+$menu_beverages[] = new MenuItem('b1', 'Thai Iced Coffee', 3.95, 'Espresso swirled with sweet condensed milk.');
 $menu_beverages[] = new MenuItem('b2', 'Iced Tea', 2.95, 'House blend of black and green teas.');
-$menu_beverages[] = new MenuItem('b3', 'Cola', 2.25, 'Choice of cola, variety of flavors.');
+$menu_beverages[] = new MenuItem('b3', 'Coke Products', 2.25, 'Choice of Coca Cola products, in a variety of flavors.');
+$menu_beverages[] = new MenuItem('b4', 'Jarritos', 2.55, 'Delicious fruit soda, with real sugar!.');
+$menu_beverages[] = new MenuItem('b5', 'Bottled Water', 1.75, 'Some refreshing water in a bottle.');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we have received POST data
     // This section will fill up the cart array with all the items that have been chosen
@@ -105,7 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
             
         </div>
 
-        <p id="Guide">Click on category (Entree, Sides, or Beverage). Enter the number of each item desired, then click Update Cart.<br>To remove an item, adjust the desired number then click Update Cart.</p>
+        <h3 id="Guide">Click on category (Entree, Sides, or Beverage). Enter the number of each item desired, then click Update Cart.</h3>
+        <h3 id="Guide">To remove an item, adjust the desired number then click Update Cart.</h3>
 
         
 
@@ -122,17 +129,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
 
                         <div class="menu_category">
                             <ul>
-                                <?php
+                                <?php // This echoes each item in the menu_entrees array
                                 foreach ($menu_entrees as $item): ?>
-                                    <li><?=$item->name;?> - $<?=$item->price; ?>
+                                <div class="item_wrapper">
+                                    <div class="image_wrapper"><img src="images/<?=$item->menu_id;?>.png" class="thumb" alt="<?=$item->description;?>"/></div>
+                                    <li><strong>
                                     <input type='number' name='<?=$item->menu_id;?>' value="<?php 
-                                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                                            echo $_POST["{$item->menu_id}"];
-                                        } else {
-                                            echo "0";
-                                        }
-                                    ?>" /></li>
+                                            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                                echo $_POST["{$item->menu_id}"];
+                                            } else {
+                                                echo "0";
+                                            }
+                                        ?>" />
+                                    <?=$item->name;?></strong> - $<?=$item->price; ?>
                                     <p><?=$item->description; ?></p>
+                                    </li>
+                                </div>
+
                                 <?php endforeach; ?>
                             </ul>
                         </div>
@@ -144,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                             <ul>
                             <?php
                                 foreach ($menu_sides as $item): ?>
-                                    <li><?=$item->name;?> - $<?=$item->price; ?>
+                                    <li><strong><?=$item->name;?></strong> - $<?=$item->price; ?>
                                     <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             echo $_POST["{$item->menu_id}"];
@@ -164,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                             <ul>
                             <?php
                                 foreach ($menu_beverages as $item): ?>
-                                    <li><?=$item->name;?> - $<?=$item->price; ?>
+                                    <li><strong><?=$item->name;?></strong> - $<?=$item->price; ?>
                                     <input type='number' name='<?=$item->menu_id;?>' value="<?php 
                                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             echo $_POST["{$item->menu_id}"];
@@ -219,11 +232,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                         }
                         $item_total = number_format($item_total, 2);
                         echo " x {$count} <span class='total'>\${$item_total}</total></p>";
-                    ?>
-                <?php
                     } else {
-                        echo "<h2>Please choose items from the menu.</h2>";
-                        echo "<h3>Click  <em>'Update Cart'</em> to see your total.</h3>";
+                        echo "<h2>Add items to your cart using the form to the left.</h2>";
+                        echo "<h3>Click the button at the bottom to update the total!</h3>";
                     }
                 ?>
                 </div>
@@ -242,18 +253,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Only need to run this code if we 
                     ?>
 
                     <p>Thank you for your order!<p>
-
-
                 </div>
                 <?php } ?>
             </div>
         </div>
     </body>
-    <footer class="footer">
-
-	    <p>&copy; 2020 ~ Yoshi's Teriyaki ~ All rights reserved <br> <a href="https://docs.google.com/document/d/109YDv6L_6a3HujT3FmWid61y7CRKqn6hLDJuSDm_Hys/edit?usp=sharing" target="_blank">Project Document</a> ~ <a href="https://github.com/Titane73/it262-p3-food-truck" target="_blank">GitHub Repo</a></p>
-
-	</footer>
 
 
 </html>
